@@ -8,3 +8,10 @@ gitconfig = "~/.gitconfig"
 # git_email =
 # git_username =
 # git_signing_key =
+
+[tmux.files]
+"tmux.conf" = "~/.tmux.conf"
+
+[tmux.variables]
+tmux_prefix = "C-b"
+tmux_using_plugins = 0
