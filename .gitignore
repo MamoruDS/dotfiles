@@ -1,0 +1,4 @@
+# https://github.com/SuperCuber/dotter/wiki/Setup-and-Configuration
+.dotter/local.toml
+.dotter/cache.toml
+.dotter/cache
