@@ -6,7 +6,6 @@ scripts = "~/.scripts"
 [git.files]
 gitconfig = "~/.gitconfig"
 
-# optional variables
 # [git.variables]
 # git_email =
 # git_username =
@@ -28,6 +27,7 @@ depends = ["scripts", "tmux", "git"]
 
 [shell.files]
 aliases = "~/.aliases"
+opener = "~/.opener"
 
 [shell.variables]
 shell_nerdfont = 0

@@ -20,6 +20,7 @@ if [ -d "$_zsh_cfgdir/plugins" ]; then
 fi
 
 [ "$TERM" = "xterm" ] && export TERM="xterm-256color"
+export PATH=$HOME/.scripts:$PATH
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local
 [ -f ~/.aliases ] && . ~/.aliases

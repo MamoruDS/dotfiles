@@ -1,0 +1,11 @@
+{{#if dotter.packages.zsh}}
+alias reload='source ~/.zshrc'
+{{/if}}
+
+{{#if dotter.packages.tmux}}
+alias ta='tmux attach -t 1 2> /dev/null || tmux new -s 1'
+{{/if}}
+
+{{#if is_executable "exa"}}
+alias ls='exa'
+{{/if}}
