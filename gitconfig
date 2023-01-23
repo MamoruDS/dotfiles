@@ -1,0 +1,38 @@
+{{#if (and git_email git_username)}}
+[user]
+    email = {{git_email}}
+    name = {{git_username}}
+    {{#if (and git_signing_key (is_executable "gpg2"))}}
+    signingkey = {{git_signing_key}}
+    {{/if}}
+{{/if}}
+
+[init]
+    defaultBranch = main
+
+[alias]
+    dft = difftool
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+    root = rev-parse --show-toplevel
+    st = status -sb
+
+{{#if (and git_signing_key (is_executable "gpg2"))}}
+[commit]
+    gpgsign = true
+
+[gpg]
+    program = gpg2
+{{/if}}
+
+{{#if (is_executable "nvim")}}
+[difftool]
+    prompt = true
+
+[diff]
+    tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -dR \"$LOCAL\" \"$REMOTE\""
+{{/if}}

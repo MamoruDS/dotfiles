@@ -1,0 +1,10 @@
+# https://github.com/SuperCuber/dotter/wiki/Setup-and-Configuration
+
+[git.files]
+gitconfig = "~/.gitconfig"
+
+# optional variables
+# [git.variables]
+# git_email =
+# git_username =
+# git_signing_key =
