@@ -22,3 +22,24 @@ depends = ["scripts"]
 tmux_float = 1
 tmux_prefix = "C-b"
 tmux_using_plugins = 0
+
+[shell]
+depends = ["scripts", "tmux", "git"]
+
+[shell.files]
+aliases = "~/.aliases"
+
+[shell.variables]
+shell_nerdfont = 0
+
+[zsh]
+depends = ["shell"]
+
+[zsh.files]
+"zshrc" = "~/.zshrc"
+zsh = "~/.zsh"
+
+[zsh.variables]
+zsh_theme = "spaceship"
+zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
+zsh_plugin_fzf_history_search_preview = 0
