@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+
+zparseopts -E -D -a args -realpath+::
+
+_ls() {
+    if command -v exa &> /dev/null; then
+        exa -a --color=always --grid $realpath
+    else
+        ls -a --color=always $realpath
+    fi
+}
+
+_cat() {
+    if command -v nvimpager &> /dev/null; then
+        nvimpager -c $realpath
+    elif command -v bat &> /dev/null; then
+        bat -p --color=always --theme=base16 $realpath
+    else
+        cat $realpath
+    fi
+}
+
+if [[ ! -e $realpath ]]; then
+    exit 0
+fi
+
+if [[ -d $realpath ]]; then
+    _ls
+    exit 0
+fi
+
+if [[ -f $realpath ]]; then
+    mime=$(file -ibL $realpath)
+    category=${mime%%/*}
+    subtype=${mime##*/}; subtype=${subtype%%;*}
+    charset=${mime##*charset=}
+
+
+    if [[ "$category" == 'text' && "$charset" != 'binary' ]]; then
+        _cat
+    else
+        echo $mime
+    fi
+fi

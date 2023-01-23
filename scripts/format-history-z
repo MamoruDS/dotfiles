@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+text=$(echo -e "$1")
+printf "$text" | nvimpager -c -- -c 'set ft=sh'
