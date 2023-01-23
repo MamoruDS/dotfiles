@@ -1,5 +1,8 @@
 # https://github.com/SuperCuber/dotter/wiki/Setup-and-Configuration
 
+[scripts.files]
+scripts = "~/.scripts"
+
 [git.files]
 gitconfig = "~/.gitconfig"
 
@@ -9,9 +12,13 @@ gitconfig = "~/.gitconfig"
 # git_username =
 # git_signing_key =
 
+[tmux]
+depends = ["scripts"]
+
 [tmux.files]
 "tmux.conf" = "~/.tmux.conf"
 
 [tmux.variables]
+tmux_float = 1
 tmux_prefix = "C-b"
 tmux_using_plugins = 0

@@ -1,0 +1,61 @@
+#!/usr/bin/env sh
+
+icon=
+icon_fg="#[fg=green]"
+icon_bg=
+process=$1
+
+if [ $1 = ash ]; then
+    icon=""
+fi 
+if [ $1 = bash ]; then
+    icon=""
+fi
+if [ $1 = docker ]; then
+    icon=""
+fi
+if [ $1 = git ]; then
+    icon=""
+fi
+if [ $1 = node ]; then
+    icon="" # ?
+fi
+if [ $1 = nvim ]; then
+    icon=""
+    process="neovim"
+fi
+if [ $1 = python ]; then
+    icon=""
+fi
+if [ $1 = ruby ]; then
+    icon=""
+fi
+if [ $1 = rust ]; then
+    icon=""
+fi
+if [ $1 = ssh ]; then
+    icon=""
+fi
+if [ $1 = sudo ]; then
+    icon=""
+fi
+if [ $1 = tsc ]; then
+    # icon=""
+    icon="ﯤ"
+fi
+if [ $1 = vim ]; then
+    icon=""
+fi
+if [ $1 = zsh ]; then
+    icon=""
+fi
+
+if [ ! -z "$icon" ]; then
+    icon="$icon_fg$icon_bg$icon "
+fi
+
+echo "\
+#{_reset_color}\
+$icon\
+#{_reset_color}\
+$process"
