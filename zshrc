@@ -13,7 +13,6 @@ _source_configs() {
 _source_configs "$_zsh_cfgdir/configs"
 
 if [ -d "$_zsh_cfgdir/plugins" ]; then
-    echo loading plugins
     . "$_zsh_cfgdir/plugins/zinit.zsh"
     . "$_zsh_cfgdir/plugins/plugins.zsh"
     _source_configs "$_zsh_cfgdir/plugins/configs"
