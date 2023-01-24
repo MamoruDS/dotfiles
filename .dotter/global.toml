@@ -6,10 +6,10 @@ scripts = "~/.scripts"
 [git.files]
 gitconfig = "~/.gitconfig"
 
-# [git.variables]
-# git_email =
-# git_username =
-# git_signing_key =
+[git.variables]
+git_email = ""
+git_username = ""
+git_signing_key = ""
 
 [tmux]
 depends = ["scripts"]
