@@ -27,6 +27,7 @@ depends = ["scripts", "tmux", "git"]
 
 [shell.files]
 aliases = "~/.aliases"
+hushlogin = "~/.hushlogin"
 opener = "~/.opener"
 
 [shell.variables]
