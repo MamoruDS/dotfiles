@@ -40,4 +40,7 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
 
 ### Optional
 
-To using zsh plugins [fzf-tab](https://github.com/Aloxaf/fzf-tab) and [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search), you need to install [fzf](https://github.com/junegunn/fzf#installation).
+-   [fzf](https://github.com/junegunn/fzf#installation)
+    for using zsh's plugins [fzf-tab](https://github.com/Aloxaf/fzf-tab) and [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search)
+-   [file](https://www.darwinsys.com/file/)
+    for using preview utils in [fzf-tab](https://github.com/Aloxaf/fzf-tab)
