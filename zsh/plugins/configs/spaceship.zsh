@@ -41,7 +41,7 @@ SPACESHIP_HOST_COLOR_SSH='6'
 
 # Directory
 SPACESHIP_DIR_SHOW='true'
-{{#if (eq shell_nerdfont 1)}}
+{{#if (eq use_nerdfont 1)}}
 SPACESHIP_DIR_PREFIX=' '
 SPACESHIP_DIR_LOCK_SYMBOL=''
 {{else}}
@@ -52,7 +52,7 @@ SPACESHIP_DIR_COLOR='15'
 
 # Git
 SPACESHIP_GIT_SHOW='true'
-{{#if (eq shell_nerdfont 1)}}
+{{#if (eq use_nerdfont 1)}}
 SPACESHIP_GIT_PREFIX=' '
 SPACESHIP_GIT_SYMBOL=''
 {{else}}
@@ -103,7 +103,7 @@ SPACESHIP_EXEC_TIME_COLOR='216'
 # Exit Code
 SPACESHIP_EXIT_CODE_SHOW=true
 SPACESHIP_EXIT_CODE_COLOR=9
-{{#if (eq shell_nerdfont 1)}}
+{{#if (eq use_nerdfont 1)}}
 SPACESHIP_EXIT_CODE_SYMBOL=' '
 {{else}}
 SPACESHIP_EXIT_CODE_SYMBOL='c'

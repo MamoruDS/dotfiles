@@ -1,5 +1,8 @@
 # https://github.com/SuperCuber/dotter/wiki/Setup-and-Configuration
 
+[global.variables]
+use_nerdfont = 0
+
 [scripts.files]
 scripts = "~/.scripts"
 
@@ -29,9 +32,6 @@ depends = ["scripts", "tmux", "git"]
 aliases = "~/.aliases"
 hushlogin = "~/.hushlogin"
 opener = "~/.opener"
-
-[shell.variables]
-shell_nerdfont = 0
 
 [zsh]
 depends = ["shell"]
