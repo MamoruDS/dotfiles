@@ -11,13 +11,19 @@ _ls() {
 }
 
 _cat() {
+    PREVIEW_SIZE=20000 # preview size in bytes
+
+    filename=$(basename $realpath)
+    tmp_fp=/tmp/preview-z-$filename
+    head -c $PREVIEW_SIZE $realpath > $tmp_fp
     if command -v nvimpager &> /dev/null; then
-        nvimpager -c $realpath
+        nvimpager -c $tmp_fp
     elif command -v bat &> /dev/null; then
-        bat -p --color=always --theme=base16 $realpath
+        bat -p --color=always --theme=base16 $tmp_fp
     else
-        cat $realpath
+        cat $tmp_fp
     fi
+    rm $tmp_fp
 }
 
 if [[ ! -e $realpath ]]; then
@@ -30,15 +36,18 @@ if [[ -d $realpath ]]; then
 fi
 
 if [[ -f $realpath ]]; then
-    mime=$(file -ibL $realpath)
-    category=${mime%%/*}
-    subtype=${mime##*/}; subtype=${subtype%%;*}
-    charset=${mime##*charset=}
+    if command -v file &> /dev/null; then
+        mime=$(file -ibL $realpath)
+        category=${mime%%/*}
+        subtype=${mime##*/}; subtype=${subtype%%;*}
+        charset=${mime##*charset=}
 
-
-    if [[ "$category" == 'text' && "$charset" != 'binary' ]]; then
-        _cat
+        if [[ "$category" == 'text' && "$charset" != 'binary' ]]; then
+            _cat
+        else
+            echo $mime
+        fi
     else
-        echo $mime
+        _cat
     fi
 fi
