@@ -26,7 +26,7 @@ tmux_prefix = "C-b"
 tmux_using_plugins = 0
 
 [shell]
-depends = ["scripts", "tmux", "git"]
+depends = ["scripts"]
 
 [shell.files]
 aliases = "~/.aliases"
