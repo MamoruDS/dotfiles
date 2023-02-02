@@ -2,7 +2,7 @@
 [user]
     email = {{git_email}}
     name = {{git_username}}
-    {{#if (and git_signing_key (is_executable "gpg2"))}}
+    {{#if (and git_signing_key (or (is_executable "gpg") (is_executable "gpg2")))}}
     signingkey = {{git_signing_key}}
     {{/if}}
 {{/if}}
@@ -18,12 +18,16 @@
     root = rev-parse --show-toplevel
     st = status -sb
 
-{{#if (and git_signing_key (is_executable "gpg2"))}}
+{{#if (and git_signing_key (or (is_executable "gpg") (is_executable "gpg2")))}}
 [commit]
     gpgsign = true
 
 [gpg]
+    {{#if (is_executable "gpg2")}}
     program = gpg2
+    {{else}}
+    program = gpg
+    {{/if}}
 {{/if}}
 
 {{#if (is_executable "nvim")}}
