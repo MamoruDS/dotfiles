@@ -23,3 +23,4 @@ export PATH=$HOME/.scripts:$PATH
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local
 [ -f ~/.aliases ] && . ~/.aliases
+[ -f ~/.env.sh ] && . ~/.env.sh

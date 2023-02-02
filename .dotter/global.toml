@@ -31,7 +31,7 @@ depends = ["scripts"]
 [shell.files]
 aliases = "~/.aliases"
 hushlogin = "~/.hushlogin"
-opener = "~/.opener"
+"env.sh" = "~/.env.sh"
 
 [zsh]
 depends = ["shell"]
