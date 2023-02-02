@@ -26,6 +26,9 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
     # valid packages and variables can be found in .dotter/global.toml
     packages = ["zsh", "tmux"]
 
+    [files]
+    zshrc = "~/.zshrc.dot"
+
     [variables]
     use_nerdfont = 1 # if you have nerdfont installed
     zsh_plugin_fzf_history_search_preview = 1
@@ -38,9 +41,15 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
     dotter -v
     ```
 
-### Optional
+### Requirements
 
 -   [fzf](https://github.com/junegunn/fzf#installation)
     for using zsh's plugins [fzf-tab](https://github.com/Aloxaf/fzf-tab) and [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search)
 -   [file](https://www.darwinsys.com/file/)
     for using preview utils in [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+-   [packer](https://github.com/wbthomason/packer.nvim#quickstart) is required for using package `nvim`
+
+    ```shell
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    ```
