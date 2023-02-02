@@ -47,6 +47,24 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
     for using zsh's plugins [fzf-tab](https://github.com/Aloxaf/fzf-tab) and [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search)
 -   [file](https://www.darwinsys.com/file/)
     for using preview utils in [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+
+-   [tpm](https://github.com/tmux-plugins/tpm) is required for using package `tmux` with plugins (disabled by default)
+
+    ```shell
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ```
+
+    and enable plugins for `tmux` package in your dotter local config
+
+    ```toml
+    # in your local.toml
+    ...
+    [variables]
+    ...
+    tmux_using_plugins = 1
+    ...
+    ```
+
 -   [packer](https://github.com/wbthomason/packer.nvim#quickstart) is required for using package `nvim`
 
     ```shell
