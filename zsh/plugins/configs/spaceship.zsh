@@ -1,3 +1,4 @@
+{{#if (eq zsh_theme "spaceship")}}
 SPACESHIP_PROMPT_ORDER=(
     user
     host
@@ -117,3 +118,4 @@ else
     SPACESHIP_USER_SHOW='false'
     SPACESHIP_HOST_SHOW='false'
 fi
+{{/if}}

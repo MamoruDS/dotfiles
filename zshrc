@@ -18,6 +18,8 @@ if [ -d "$_zsh_cfgdir/plugins" ]; then
     _source_configs "$_zsh_cfgdir/plugins/configs"
 fi
 
+_source_configs "$_zsh_cfgdir/after"
+
 [ "$TERM" = "xterm" ] && export TERM="xterm-256color"
 export PATH=$HOME/.scripts:$PATH
 
