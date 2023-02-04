@@ -32,6 +32,7 @@ depends = ["scripts"]
 aliases = "~/.aliases"
 hushlogin = "~/.hushlogin"
 "env.sh" = "~/.env.sh"
+starship = "~/.config/starship"
 
 [zsh]
 depends = ["shell"]
@@ -51,4 +52,4 @@ nvim = "~/.config/nvim"
 [nvim.variables]
 nvim_node_host_prog = ""           # rqeuired by coc.nvim; `lib/node_modules/neovim/bin/cli.js`
 nvim_python3_host_prog = ""        # required by semshi; `bin/python3`
-nvim_plugin_copilot_node_host = "" # required by copilot; `bin/node` 
+nvim_plugin_copilot_node_host = "" # required by copilot; `bin/node`

@@ -1,0 +1,157 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# https://starship.rs/config/#prompt
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$jobs\
+$battery\
+$time\
+$status\
+$os\
+$container\
+$line_break\
+$shell\
+$character"""
+
+[character]
+success_symbol = '[:](bold 0)'
+error_symbol = '[:](bold 9)'
+
+[cmd_duration]
+min_time = 1_500
+format ='[$duration]($style) '
+style = 'bold 216'
+
+[container]
+disabled = true
+
+[conda]
+{{#if (eq use_nerdfont 1)}}
+symbol = "🅒 "
+{{else}}
+symbol = "@"
+{{/if}}
+style = 'bold 81'
+format = '$symbol[$environment]($style) '
+ignore_base = false
+
+[directory]
+{{#if (eq use_nerdfont 1)}}
+format = "[](bold 7) [$path]($style)[$read_only]($read_only_style) "
+{{else}}
+format = "[$path]($style)[$read_only]($read_only_style) "
+{{/if}}
+style = 'bold 15'
+
+[env_var.CUDA_VISIBLE_DEVICES]
+style = 'bold 2'
+format = '[N](bold)[v](bold 8)[$env_value]($style) '
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+{{#if (eq use_nerdfont 1)}}
+symbol = ' '
+{{else}}
+symbol = ' '
+{{/if}}
+style = 'bold 13'
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = 'bold 5'
+
+[hostname]
+ssh_symbol = ''
+format = '[$ssh_symbol$hostname]($style) [in](bold) '
+style = 'bold 6'
+disabled = true
+
+[status]
+format = '[$symbol$status]($style) '
+{{#if (eq use_nerdfont 1)}}
+symbol = ' '
+{{else}}
+symbol = 'c'
+{{/if}}
+style = 'bold 9'
+disabled = false
+
+[time]
+format ='[$time]($style) '
+style = 'bold 0'
+disabled = false
+
+[username]
+format = '[$user]($style) [au](bold) '
+style_user = 'bold 3'
+style_root = 'bold 1'
+disabled = true
