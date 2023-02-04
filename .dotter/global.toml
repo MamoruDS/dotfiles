@@ -42,7 +42,7 @@ depends = ["shell"]
 zsh = "~/.zsh"
 
 [zsh.variables]
-zsh_theme = "spaceship"
+zsh_theme = "starship"
 zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
 zsh_plugin_fzf_history_search_preview = 0
 
