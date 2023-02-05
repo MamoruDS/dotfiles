@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+# https://github.com/tmux-plugins/tpm/blob/master/docs/managing_plugins_via_cmd_line.md
+
+TPM_DIR=~/.tmux/plugins/tpm
+
+if [ "$1" == "--tmux-echo" ]; then
+    tmux_echo() {
+        local msg="$*"
+        tmux run-shell "echo '$msg'"
+    }
+    install_plugins() {
+        "$TPM_DIR/scripts/install_plugins.sh" --tmux-echo
+    }
+    done_tpm_init() {
+        tmux_echo '[DOTFILES] done, press ENTER to continue.'
+    }
+else
+    tmux_echo() {
+        local msg="$*"
+        echo "$msg"
+    }
+    install_plugins() {
+        "$TPM_DIR/scripts/install_plugins.sh"
+    }
+    done_tpm_init() {
+        tmux_echo '[DOTFILES] done'
+    }
+fi
+
+if [ ! -d "$TPM_DIR" ]; then
+    tmux_echo '[DOTFILES] installing tmux_tpm ...'
+    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+    install_plugins
+    done_tpm_init
+# else
+#     install_plugins > /dev/null
+fi
