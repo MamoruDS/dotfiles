@@ -3,7 +3,7 @@ fc -R
 
 _zsh_cfgdir="$HOME/.zsh"
 
-update_dotfiles() {
+update-dotfiles() {
     if [ ! -x "$(command -v dotter)" ] && [ ! -x "$DOTTER_BIN" ] ; then
         echo '[DOTFILES] dotter not in your PATH, you can use env `DOTTER_BIN` to specify it'
         return 1
