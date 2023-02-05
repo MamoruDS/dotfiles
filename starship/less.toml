@@ -91,9 +91,6 @@ min_time = 1_500
 format ='[$duration]($style) '
 style = 'bold 216'
 
-[container]
-disabled = true
-
 [conda]
 {{#if (eq use_nerdfont 1)}}
 symbol = "🅒 "
@@ -135,6 +132,16 @@ format = '[$ssh_symbol$hostname]($style) [in](bold) '
 style = 'bold 6'
 disabled = true
 
+[package]
+# format = '[is](bold) [$symbol$version]($style) '
+format = '[$symbol$version]($style) '
+{{#if (eq use_nerdfont 1)}}
+symbol = ' '
+{{else}}
+symbol = 'p@'
+{{/if}}
+style = 'bold 11'
+
 [status]
 format = '[$symbol$status]($style) '
 {{#if (eq use_nerdfont 1)}}
@@ -154,4 +161,23 @@ disabled = false
 format = '[$user]($style) [au](bold) '
 style_user = 'bold 3'
 style_root = 'bold 1'
+disabled = true
+
+# disabled packages
+[container]
+disabled = true
+[docker_context]
+format = '[$symbol$context]($style) '
+symbol = '🐋'
+style = 'bold 12'
+disabled = true
+[deno]
+disabled = true
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[ruby]
+disabled = true
+[rust]
 disabled = true
