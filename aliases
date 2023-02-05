@@ -2,10 +2,20 @@
 alias reload='source ~/.zshrc'
 {{/if}}
 
-{{#if dotter.packages.tmux}}
+if [ -x "$(command -v tmux)" ]; then
 alias ta='tmux attach -t 1 2> /dev/null || tmux new -s 1'
-{{/if}}
+fi
 
-{{#if is_executable "exa"}}
-alias ls='exa'
-{{/if}}
+if [ -x "$(command -v exa)" ]; then
+  alias ls='exa --color=auto'
+else
+  alias ls='ls --color=auto'
+fi
+
+color_test() {
+    curl -fsSL https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash -
+}
+
+color_test24() {
+    curl -fsSL https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh | bash -
+}
