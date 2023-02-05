@@ -5,7 +5,7 @@ _zsh_cfgdir="$HOME/.zsh"
 
 update_dotfiles() {
     if [ ! -x "$(command -v dotter2)" ] && [ ! -x "$DOTTER_BIN" ] ; then
-        echo 'dotter not in your PATH, you can use env `DOTTER_BIN` to specify it'
+        echo '[DOTFILES] dotter not in your PATH, you can use env `DOTTER_BIN` to specify it'
         return 1
     fi
     local dotter_bin="${DOTTER_BIN:-dotter2}"
@@ -13,7 +13,7 @@ update_dotfiles() {
     local local_toml="${DOTFILES_LOCAL:-$root/.dotter/local.toml}"
     if [ -d "$root" ]; then
         if [ ! -f "$local_toml" ]; then
-            echo 'local.toml not found, you can use env `DOTFILES_LOCAL` to specify one'
+            echo '[DOTFILES] local.toml not found, you can use env `DOTFILES_LOCAL` to specify one'
             return 1
         fi
         (
@@ -22,7 +22,7 @@ update_dotfiles() {
             && $dotter_bin -v -l "$local_toml"
         )
     else
-        echo 'root if dotfiles not found, you can use env `DOTFILES_ROOT` to specify it'
+        echo '[DOTFILES] root if dotfiles not found, you can use env `DOTFILES_ROOT` to specify it'
         return 1
     fi
     echo '[DOTFILES] done.'
