@@ -2,6 +2,8 @@
 alias reload='source ~/.zshrc'
 {{/if}}
 
+alias ':q'='echo "ヾ(・ω・*)"'
+
 if [ -x "$(command -v tmux)" ]; then
 alias ta='tmux attach -t 1 2> /dev/null || tmux new -s 1'
 fi
