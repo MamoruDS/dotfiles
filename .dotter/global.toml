@@ -55,3 +55,9 @@ nvim_transparent_bg = 0
 nvim_node_host_prog = ""           # rqeuired by coc.nvim; `lib/node_modules/neovim/bin/cli.js`
 nvim_python3_host_prog = ""        # required by semshi; `bin/python3`
 nvim_plugin_copilot_node_host = "" # required by copilot; `bin/node`
+
+[nvimpager]
+depends = ["nvim"]
+
+[nvimpager.files]
+"nvimpager" = "~/.config/nvimpager"
