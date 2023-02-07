@@ -19,7 +19,7 @@ update-dotfiles() {
         (
             cd "$root" \
             && (if [ -z "$DOTFILES_IGNORE_REMOTE" ]; then git pull ; fi) \
-            && $dotter_bin -v -l "$local_toml"
+            && (if [ "$1" = "-f" ]; then $dotter_bin -vf -l "$local_toml" ; else $dotter_bin -v -l "$local_toml"; fi )
         )
     else
         echo '[DOTFILES] root if dotfiles not found, you can use env `DOTFILES_ROOT` to specify it'
