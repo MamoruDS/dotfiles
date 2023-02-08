@@ -1,6 +1,6 @@
 {{#if (eq zsh_theme "starship")}}
 _init_starship() {
-    if [ ! "$STARSHIP_SHELL" = "zsh" ]; then
+    if [ ! "$STARSHIP_SHELL" = "zsh" ] || [ -z "$_DOTFILES_RELOADING" ] ; then
         eval "$(starship init zsh)"
     fi
     if [ -z "$TMUX" -a ! "$TERM_PROGRAM" = "vscode" ]; then

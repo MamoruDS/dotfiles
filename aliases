@@ -1,5 +1,9 @@
 {{#if dotter.packages.zsh}}
-alias reload='source ~/.zshrc'
+reload() {
+    export _DOTFILES_RELOADING=1
+    source ~/.zshrc
+    export _DOTFILES_RELOADING=""
+}
 {{/if}}
 
 alias ':q'='echo "ヾ(・ω・*)"'
