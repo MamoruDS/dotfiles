@@ -43,6 +43,7 @@ zsh = "~/.zsh"
 
 [zsh.variables]
 zsh_theme = "starship"
+zsh_plugin_autosuggestions = 0
 zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
 zsh_plugin_fzf_history_search_preview = 0
 
