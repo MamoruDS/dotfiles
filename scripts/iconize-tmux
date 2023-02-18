@@ -24,8 +24,10 @@ if [ $1 = nvim ]; then
     icon=""
     name="neovim"
 fi
-if [ $1 = python ]; then
+if [ $1 = python ] || [ $1 = Python ]; then
     icon=""
+    icon_fg="#ffbc03"
+    name="python"
 fi
 if [ $1 = ruby ]; then
     icon=""
