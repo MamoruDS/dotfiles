@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 icon=
-icon_fg="#[fg=green]"
-icon_bg=
-process=$1
+icon_fg='green'
+icon_bg='default'
+name=$1
 
 if [ $1 = ash ]; then
     icon=""
@@ -22,7 +22,7 @@ if [ $1 = node ]; then
 fi
 if [ $1 = nvim ]; then
     icon=""
-    process="neovim"
+    name="neovim"
 fi
 if [ $1 = python ]; then
     icon=""
@@ -51,11 +51,12 @@ if [ $1 = zsh ]; then
 fi
 
 if [ ! -z "$icon" ]; then
-    icon="$icon_fg$icon_bg$icon "
+    icon="#[fg=$icon_fg,bg=$icon_bg] $icon "
 fi
+name="#[fg=#{fg0_light}]$name "
 
 echo "\
-#{_reset_color}\
+#{default_style}\
 $icon\
-#{_reset_color}\
-$process"
+#{default_style}\
+$name"
