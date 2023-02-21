@@ -1,5 +1,4 @@
 unset zle_bracketed_paste
-fc -R
 
 _zsh_cfgdir="$HOME/.zsh"
 

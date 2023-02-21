@@ -2,6 +2,7 @@
 reload() {
     export _DOTFILES_RELOADING=1
     source ~/.zshrc
+    fc -RI
     export _DOTFILES_RELOADING=""
 }
 {{/if}}
