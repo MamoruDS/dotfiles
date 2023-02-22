@@ -3,7 +3,7 @@
 zparseopts -E -D -a args -realpath+::
 
 _ls() {
-    if command -v exa &> /dev/null; then
+    if [ -x "$(command -v exa)" ]; then
         exa -a --color=always --grid $realpath
     else
         ls -a --color=always $realpath
@@ -16,9 +16,9 @@ _cat() {
     filename=$(basename $realpath)
     tmp_fp=/tmp/preview-z-$filename
     head -c $PREVIEW_SIZE $realpath > $tmp_fp
-    if command -v nvimpager &> /dev/null; then
+    if [ -x "$(command -v nvimpager)" ]; then
         nvimpager -c $tmp_fp
-    elif command -v bat &> /dev/null; then
+    elif [ -x "$(command -v bat)" ]; then
         bat -p --color=always --theme=base16 $tmp_fp
     else
         cat $tmp_fp
@@ -36,7 +36,7 @@ if [[ -d $realpath ]]; then
 fi
 
 if [[ -f $realpath ]]; then
-    if command -v file &> /dev/null; then
+    if [ -x "$(command -v file)" ]; then
         mime=$(file -ibL $realpath)
         category=${mime%%/*}
         subtype=${mime##*/}; subtype=${subtype%%;*}
