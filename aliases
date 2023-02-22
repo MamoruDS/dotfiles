@@ -18,6 +18,7 @@ if [ -x "$(command -v exa)" ]; then
 else
   alias ls='ls --color=auto'
 fi
+alias ll='ls -l'
 
 color_test() {
     curl -fsSL https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash -
