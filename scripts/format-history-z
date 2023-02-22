@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-text=$(echo -e "$1")
-
-{{#if is_executable "nvimpager"}}
-    printf "$text" | nvimpager -c -- -c 'set ft=sh'
-{{else}}
-    printf "$text"
-{{/if}}
