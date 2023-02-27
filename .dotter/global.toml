@@ -15,7 +15,7 @@ git_username = ""
 git_signing_key = ""
 
 [tmux]
-depends = ["scripts"]
+depends = ["global", "scripts"]
 
 [tmux.files]
 "tmux.conf" = "~/.tmux.conf"
@@ -26,7 +26,7 @@ tmux_prefix = "C-b"
 tmux_using_plugins = 0
 
 [shell]
-depends = ["scripts"]
+depends = ["global", "scripts"]
 
 [shell.files]
 aliases = "~/.aliases"
@@ -46,6 +46,9 @@ zsh_theme = "starship"
 zsh_plugin_autosuggestions = 0
 zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
 zsh_plugin_fzf_history_search_preview = 0
+
+[nvim]
+depends = ["global"]
 
 [nvim.files]
 nvim = "~/.config/nvim"
