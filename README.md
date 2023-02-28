@@ -69,3 +69,29 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     ```
+
+## Usage
+
+If you have installed the dotfiles with package `zsh`, you can easily keep your dotfiles up-to-date using the update-dotfiles function. This function searches for the root of your dotfiles repository at `~/.dotfiles`, and looks for the local config toml file at `~/.dotfiles/.dotter/local.toml`. However, you can customize these locations using environment variables specific to your setup, as follows:
+
+```shell
+# specific path of your dotter binary; default: dotter
+DOTTER_BIN=~/bin/dotter
+
+# root of dotfiles repo; default: ~/.dotfiles
+DOTFILES_ROOT=~/dotfiles
+
+# location of the local config; default: $DOTFILES_ROOT/.dotter/local.toml
+DOTFILES_LOCAL=~/.dot.local.toml
+
+# update dotfiles without pull from remote; default:
+DOTFILES_IGNORE_REMOTE=1
+```
+
+To use the update function, simply run it from your shell:
+
+```shell
+update-dotfiles
+# or with force; equivalent dotter -f
+update-dotfiles -f
+```
