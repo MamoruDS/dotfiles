@@ -31,7 +31,7 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
 
     [variables]
     use_nerdfont = 1 # if you have nerdfont installed
-    zsh_plugin_fzf_history_search_preview = 1
+    zsh_plugin_autosuggestions = 1
     ```
 
     and using `dotter` to deploy dotfiles.
@@ -43,8 +43,9 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
 
 ### Requirements
 
+-   [fzf](https://github.com/junegunn/fzf#installation) or [skim](https://github.com/lotabout/skim) is required for using `zsh`'s plugin [zsh-history-fuzzy-search](https://github.com/MamoruDS/zsh-history-fuzzy-search)
 -   [fzf](https://github.com/junegunn/fzf#installation)
-    for using zsh's plugins [fzf-tab](https://github.com/Aloxaf/fzf-tab) and [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search)
+    is required for using `zsh`'s plugin [fzf-tab](https://github.com/Aloxaf/fzf-tab)
 -   [file](https://www.darwinsys.com/file/)
     for using preview utils in [fzf-tab](https://github.com/Aloxaf/fzf-tab)
 
@@ -58,11 +59,8 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
 
     ```toml
     # in your local.toml
-    ...
     [variables]
-    ...
     tmux_using_plugins = 1
-    ...
     ```
 
 -   [packer](https://github.com/wbthomason/packer.nvim#quickstart) is required for using package `nvim`
