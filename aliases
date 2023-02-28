@@ -27,3 +27,11 @@ color_test() {
 color_test24() {
     curl -fsSL https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh | bash -
 }
+
+ssh() {
+    _reset() {
+        tput init
+    }
+
+    command ssh "$@" || _reset
+}
