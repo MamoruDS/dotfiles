@@ -13,7 +13,5 @@ fi
 
 # https://raw.githubusercontent.com/tmux/tmux/3.2a/CHANGES
 if [ -n "$(tmux_version_ge 3.2)" ]; then
-    {{#if (eq tmux_float 1)}}
     tmux bind-key i run-shell 'sh ~/.scripts/tmux_float'
-    {{/if}}
 fi

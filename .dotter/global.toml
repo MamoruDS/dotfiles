@@ -21,7 +21,6 @@ depends = ["global", "scripts"]
 "tmux.conf" = "~/.tmux.conf"
 
 [tmux.variables]
-tmux_float = 1
 tmux_prefix = "C-b"
 tmux_using_plugins = 0
 
