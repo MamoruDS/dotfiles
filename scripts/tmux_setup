@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+tmux_version_ge() {
+    local target_version=$1
+    [ "$(printf "%s\n" $(tmux -V) $target_version | sort -V | head -n 1)" = "$target_version" ] && echo 1
+}
+
+# https://raw.githubusercontent.com/tmux/tmux/3.3/CHANGES
+if [ -n "$(tmux_version_ge 3.3)" ]; then
+    tmux set-option -g popup-border-style "fg=#5f697a"
+    tmux set-option -g popup-border-lines rounded
+fi
+
+# https://raw.githubusercontent.com/tmux/tmux/3.2a/CHANGES
+if [ -n "$(tmux_version_ge 3.2)" ]; then
+    {{#if (eq tmux_float 1)}}
+    tmux bind-key i run-shell 'sh ~/.scripts/tmux_float'
+    {{/if}}
+fi
