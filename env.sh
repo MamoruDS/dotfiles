@@ -1,22 +1,21 @@
 #!/usr/bin/env sh
 
-{{#if is_executable "vim"}}
-export EDITOR=vim
+if [ -x "$(command -v vim)" ]; then
+    export EDITOR=vim
+fi
 
-{{/if}}
-{{#if is_executable "nvim"}}
-export EDITOR=nvim
+if [ -x "$(command -v nvim)" ]; then
+    export EDITOR=nvim
+fi
 
-{{/if}}
-{{#if is_executable "bat"}}
-export PAGER=bat
+if [ -x "$(command -v bat)" ]; then
+    export PAGER=bat
+fi
 
-{{/if}}
-{{#if is_executable "nvimpager"}}
-export PAGER=nvimpager
+if [ -x "$(command -v nvimpager)" ]; then
+    export PAGER=nvimpager
+fi
 
-{{/if}}
-{{#if (or (is_executable "gpg") (is_executable "gpg2"))}}
-export GPG_TTY=$(tty)
-
-{{/if}}
+if [ -x "$(command -v gpg)" ] ||  [ -x "$(command -v gpg2)" ]; then
+    export GPG_TTY=$(tty)
+fi

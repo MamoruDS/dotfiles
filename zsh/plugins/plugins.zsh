@@ -1,7 +1,7 @@
-{{#if (is_executable "fzf")}}
-zinit light Aloxaf/fzf-tab
+if [ -x "$(command -v fzf)" ]; then
+    zinit light Aloxaf/fzf-tab
+fi
 
-{{/if}}
 {{#if (eq zsh_theme "spaceship")}}
 zinit light spaceship-prompt/spaceship-prompt
 
