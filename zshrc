@@ -17,7 +17,7 @@ update-dotfiles() {
         fi
         (
             cd "$root" \
-            && (if [ -z "$DOTFILES_IGNORE_REMOTE" ]; then _cur=$(git rev-parse --short=7 HEAD) && git pull && git log --oneline --reverse $_cur..HEAD ; fi) \
+            && (if [ -z "$DOTFILES_IGNORE_REMOTE" ]; then _cur=$(git rev-parse --short=7 HEAD) && git pull && git --no-pager log --oneline --reverse $_cur..HEAD ; fi) \
             && (if [ "$1" = "-f" ]; then $dotter_bin -vf -l "$local_toml" ; else $dotter_bin -v -l "$local_toml"; fi )
         )
     else
