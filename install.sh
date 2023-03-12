@@ -10,23 +10,28 @@ test_writeable() {
     fi
 }
 
+function get_valid_path() {
+    local e='echo '"$1"''
+    echo "$(eval $e)"
+}
+
 function get_dotter_bin_dir() {
     local default_dotter_bin_dir='/usr/local/bin'
     read -p "enter the install dir for dotter ($default_dotter_bin_dir): " dotter_bin_dir
-    echo ${dotter_bin_dir:-$default_dotter_bin_dir}
+    echo $(get_valid_path ${dotter_bin_dir:-$default_dotter_bin_dir})
 }
 
 function get_dotfiles_root() {
     local default_dotfiles_root=~/.dotfiles
     read -p "enter the root of dotfiles ($default_dotfiles_root): " dotfiles_root
-    echo ${dotfiles_root:-$default_dotfiles_root}
+    echo $(get_valid_path ${dotfiles_root:-$default_dotfiles_root})
+
 }
 
 function get_dotfiles_local() {
-    # local default_dotfiles_local='~/.dot.local.toml'
     local default_dotfiles_local=$DOTFILES_ROOT/.dotter/local.toml
     read -p "enter the path of local configuration ($default_dotfiles_local): " dotfiles_local
-    echo ${dotfiles_local:-$default_dotfiles_local}
+    echo $(get_valid_path ${dotfiles_local:-$default_dotfiles_local})
 }
 
 function try_install_dotter() {
