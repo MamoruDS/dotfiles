@@ -77,6 +77,19 @@ zshrc = "~/.zshrc.dot"
 # nvim_transparent_bg = 1
 
 EOF
+    echo "[info] add the following lines to your ~/.zshrc"
+    echo ""
+    echo "[ -f ~/.zshrc.dot ] && . ~/.zshrc.dot"
+    if [ ! -x $(command -v dotter) ]; then
+    echo ""
+    echo "DOTTER_BIN=$DOTTER_BIN"
+    fi
+    if [ ! "$(realpath $DOTFILES_ROOT)" = "$(realpath ~/.dotfiles)" ]; then
+    echo "DOTFILES_ROOT=$DOTFILES_ROOT"
+    fi
+    if [ ! "$(realpath $DOTFILES_LOCAL)" = "$(realpath $DOTFILES_ROOT/.dotter/local.toml)" ]; then
+    echo "DOTFILES_LOCAL=$DOTFILES_LOCAL"
+    fi
 }
 
 function check_requirements() {
