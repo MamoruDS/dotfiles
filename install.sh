@@ -1,5 +1,17 @@
 #!/usr/bin/env sh
 
+info() {
+    printf '%s\n' " > $*"
+}
+
+warn() {
+    printf '%s\n' " ! $*"
+}
+
+error() {
+    printf '%s\n' " x $*" >&2
+}
+
 test_writeable() {
     fp="$1/.test.dotfiles"
     if touch "$fp" 2> /dev/null; then
@@ -37,19 +49,19 @@ function get_dotfiles_local() {
 function try_install_dotter() {
     if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
         DOTTER_BIN_DIR=$(get_dotter_bin_dir)
-        echo "[info] downloading dotter from github release"
+        info "downloading dotter from github release"
         curl -LO https://github.com/SuperCuber/dotter/releases/latest/download/dotter
         chmod +x dotter
-        echo "[info] installing dotter to $DOTTER_BIN_DIR"
+        info "installing dotter to $DOTTER_BIN_DIR"
         [ ! -d "$DOTTER_BIN_DIR" ] && (mkdir -p "$DOTTER_BIN_DIR" 2> /dev/null )
         if test_writeable "$DOTTER_BIN_DIR"; then
             mv dotter "$DOTTER_BIN_DIR"
         else
-            echo "[warn] permission is required to install dotter to $DOTTER_BIN_DIR"
+            warn "permission is required to install dotter to $DOTTER_BIN_DIR"
             sudo mv dotter "$DOTTER_BIN_DIR"
         fi
     else
-        echo "[fatal] unsupported platform $(uname -s) $(uname -m), please rerun this script after installing dotter manually, see https://github.com/SuperCuber/dotter#others"
+        error "unsupported platform $(uname -s) $(uname -m), please rerun this script after installing dotter manually, see https://github.com/SuperCuber/dotter#others"
         exit 1
     fi
 }
@@ -58,10 +70,10 @@ function clone_repo() {
     local repo="$1"
     local dir="$2"
     if [ -d "$dir" ]; then
-        echo "[warn] $dir already exists, skip cloning"
+        warn "$dir already exists, skip cloning"
         return 0
     else
-        git clone "$repo" "$dir"
+        git clone -q "$repo" "$dir"
     fi
 }
 
@@ -73,7 +85,7 @@ function generate_preset_local() {
     fi
 
     if [ -f "$local_fp" ]; then
-        echo "[warn] $local_fp already exists, skip generating"
+        warn "$local_fp already exists, skip generating"
         return 0
     fi
     
@@ -87,11 +99,11 @@ zshrc = "~/.zshrc.dot"
 # nvim_transparent_bg = 1
 
 EOF
-    echo "[info] add the following lines to your ~/.zshrc"
-    echo ""
+    info "add the following lines to your ~/.zshrc"
+    echo ''
     echo "[ -f ~/.zshrc.dot ] && . ~/.zshrc.dot"
     if [ ! -x $(command -v dotter) ]; then
-    echo ""
+    echo ''
     echo "DOTTER_BIN=$DOTTER_BIN"
     fi
     if [ ! "$(realpath $DOTFILES_ROOT)" = "$(realpath ~/.dotfiles)" ]; then
@@ -100,6 +112,7 @@ EOF
     if [ ! "$(realpath $DOTFILES_LOCAL)" = "$(realpath $DOTFILES_ROOT/.dotter/local.toml)" ]; then
     echo "DOTFILES_LOCAL=$DOTFILES_LOCAL"
     fi
+    echo ''
 }
 
 function check_requirements() {
@@ -117,11 +130,11 @@ function check_requirements() {
         DOTTER_BIN=$(command -v dotter)
     elif [ -n "$DOTTER_BIN" ]; then
         if [ ! -x "$DOTTER_BIN" ]; then
-            echo '[error] $DOTTER_BIN is not executable'
+            error '$DOTTER_BIN is not executable'
             missing="$missing dotter"
         fi
     else
-        echo "[info] trying to install dotter"
+        info "trying to install dotter"
         
         try_install_dotter
         DOTTER_BIN="$DOTTER_BIN_DIR/dotter"
@@ -134,8 +147,10 @@ DOTFILES_ROOT=$(get_dotfiles_root)
 DOTFILES_LOCAL=$(get_dotfiles_local)
 
 (
+    info 'cloning dotfiles from remote' && \
     clone_repo https://github.com/MamoruDS/dotfiles.git $DOTFILES_ROOT && \
     generate_preset_local "$DOTFILES_LOCAL" && \
     cd "$DOTFILES_ROOT" && \
+    info 'deloying dotfiles' && \
     $DOTTER_BIN -v -l $DOTFILES_LOCAL
 )
