@@ -41,6 +41,7 @@ function try_install_dotter() {
         curl -LO https://github.com/SuperCuber/dotter/releases/latest/download/dotter
         chmod +x dotter
         echo "[info] installing dotter to $DOTTER_BIN_DIR"
+        [ ! -d "$DOTTER_BIN_DIR" ] && (mkdir -p "$DOTTER_BIN_DIR" 2> /dev/null )
         if test_writeable "$DOTTER_BIN_DIR"; then
             mv dotter "$DOTTER_BIN_DIR"
         else
@@ -66,6 +67,10 @@ function clone_repo() {
 
 function generate_preset_local() {
     local local_fp="$1"
+
+    if [ ! -d "$(dirname $local_fp)" ]; then
+        mkdir -p "$(dirname $local_fp)"
+    fi
 
     if [ -f "$local_fp" ]; then
         echo "[warn] $local_fp already exists, skip generating"
