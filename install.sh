@@ -47,18 +47,19 @@ function get_dotfiles_local() {
 }
 
 function try_install_dotter() {
+    local dotter_dl_dir=/tmp
     if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
         DOTTER_BIN_DIR=$(get_dotter_bin_dir)
         info "downloading dotter from github release"
-        curl -LO https://github.com/SuperCuber/dotter/releases/latest/download/dotter
-        chmod +x dotter
+        curl -L https://github.com/SuperCuber/dotter/releases/latest/download/dotter -o $dotter_dl_dir/dotter
+        chmod +x $dotter_dl_dir/dotter
         info "installing dotter to $DOTTER_BIN_DIR"
         [ ! -d "$DOTTER_BIN_DIR" ] && (mkdir -p "$DOTTER_BIN_DIR" 2> /dev/null )
         if test_writeable "$DOTTER_BIN_DIR"; then
-            mv dotter "$DOTTER_BIN_DIR"
+            mv $dotter_dl_dir/dotter "$DOTTER_BIN_DIR"
         else
             warn "permission is required to install dotter to $DOTTER_BIN_DIR"
-            sudo mv dotter "$DOTTER_BIN_DIR"
+            sudo mv $dotter_dl_dir/dotter "$DOTTER_BIN_DIR"
         fi
     else
         error "unsupported platform $(uname -s) $(uname -m), please rerun this script after installing dotter manually, see https://github.com/SuperCuber/dotter#others"
