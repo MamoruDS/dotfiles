@@ -22,31 +22,30 @@ test_writeable() {
     fi
 }
 
-function get_valid_path() {
+get_valid_path() {
     local e='echo '"$1"''
     echo "$(eval $e)"
 }
 
-function get_dotter_bin_dir() {
+get_dotter_bin_dir() {
     local default_dotter_bin_dir='/usr/local/bin'
     read -p "enter the install dir for dotter ($default_dotter_bin_dir): " dotter_bin_dir
     echo $(get_valid_path ${dotter_bin_dir:-$default_dotter_bin_dir})
 }
 
-function get_dotfiles_root() {
+get_dotfiles_root() {
     local default_dotfiles_root=~/.dotfiles
     read -p "enter the root of dotfiles ($default_dotfiles_root): " dotfiles_root
     echo $(get_valid_path ${dotfiles_root:-$default_dotfiles_root})
-
 }
 
-function get_dotfiles_local() {
+get_dotfiles_local() {
     local default_dotfiles_local=$DOTFILES_ROOT/.dotter/local.toml
     read -p "enter the path of local configuration ($default_dotfiles_local): " dotfiles_local
     echo $(get_valid_path ${dotfiles_local:-$default_dotfiles_local})
 }
 
-function try_install_dotter() {
+try_install_dotter() {
     local dotter_dl_dir=/tmp
     if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
         DOTTER_BIN_DIR=$(get_dotter_bin_dir)
@@ -67,7 +66,7 @@ function try_install_dotter() {
     fi
 }
 
-function clone_repo() {
+clone_repo() {
     local repo="$1"
     local dir="$2"
     if [ -d "$dir" ]; then
@@ -78,7 +77,7 @@ function clone_repo() {
     fi
 }
 
-function generate_preset_local() {
+generate_preset_local() {
     local local_fp="$1"
 
     if [ ! -d "$(dirname $local_fp)" ]; then
@@ -116,7 +115,7 @@ EOF
     echo ''
 }
 
-function check_requirements() {
+check_requirements() {
     local missing=""
 
     if [ ! -x "$(command -v curl)" ]; then
