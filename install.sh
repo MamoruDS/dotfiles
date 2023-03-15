@@ -29,26 +29,30 @@ get_valid_path() {
 
 get_dotter_bin_dir() {
     _default_dotter_bin_dir='/usr/local/bin'
-    read -p "enter the install dir for dotter ($_default_dotter_bin_dir): " dotter_bin_dir
-    echo $(get_valid_path ${dotter_bin_dir:-$_default_dotter_bin_dir})
+    printf "enter the install dir for dotter ($_default_dotter_bin_dir): \n"
+    read dotter_bin_dir
+    DOTTER_BIN_DIR=$(get_valid_path ${dotter_bin_dir:-$_default_dotter_bin_dir})
 }
 
 get_dotfiles_root() {
     _default_dotfiles_root=~/.dotfiles
-    read -p "enter the root of dotfiles ($_default_dotfiles_root): " dotfiles_root
-    echo $(get_valid_path ${dotfiles_root:-$_default_dotfiles_root})
+    printf "enter the root of dotfiles ($_default_dotfiles_root): \n"
+    read dotfiles_root
+    DOTFILES_ROOT=$(get_valid_path ${dotfiles_root:-$_default_dotfiles_root})
 }
 
 get_dotfiles_local() {
     _default_dotfiles_local=$DOTFILES_ROOT/.dotter/local.toml
-    read -p "enter the path of local configuration ($_default_dotfiles_local): " dotfiles_local
-    echo $(get_valid_path ${dotfiles_local:-$_default_dotfiles_local})
+    printf "enter the path of local configuration ($_default_dotfiles_local): \n"
+    read dotfiles_local
+    DOTFILES_LOCAL=$(get_valid_path ${dotfiles_local:-$_default_dotfiles_local})
 }
 
 try_install_dotter() {
     _dotter_dl_dir=/tmp
     if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
-        DOTTER_BIN_DIR=$(get_dotter_bin_dir)
+        # set OTTER_BIN_DIR
+        get_dotter_bin_dir
         info "downloading dotter from github release"
         curl -L https://github.com/SuperCuber/dotter/releases/latest/download/dotter -o $_dotter_dl_dir/dotter
         chmod +x $_dotter_dl_dir/dotter
@@ -143,8 +147,11 @@ check_requirements() {
 
 check_requirements
 
-DOTFILES_ROOT=$(get_dotfiles_root)
-DOTFILES_LOCAL=$(get_dotfiles_local)
+# set DOTFILES_ROOT
+get_dotfiles_root
+
+# set DOTFILES_LOCAL
+get_dotfiles_local
 
 (
     info 'cloning dotfiles from remote' && \
