@@ -20,6 +20,10 @@ else
 fi
 alias ll='ls -l'
 
+if [ ! -x "$(command -v vim)" ] && [ -x "$(command -v nvim)" ] ; then
+  alias vim='nvim'
+fi
+
 color_test() {
     curl -fsSL https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash -
 }
