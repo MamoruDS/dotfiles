@@ -28,6 +28,10 @@ get_valid_path() {
 }
 
 get_dotter_bin_dir() {
+    if [ -n "$DOTTER_BIN_DIR" ]; then
+        info "use user defined DOTTER_BIN_DIR: $DOTTER_BIN_DIR"
+        return 0
+    fi
     _default_dotter_bin_dir='/usr/local/bin'
     printf "enter the install dir for dotter ($_default_dotter_bin_dir): \n"
     read dotter_bin_dir
@@ -35,6 +39,10 @@ get_dotter_bin_dir() {
 }
 
 get_dotfiles_root() {
+    if [ -n "$DOTFILES_ROOT" ]; then
+        info "use user defined DOTFILES_ROOT: $DOTFILES_ROOT"
+        return 0
+    fi
     _default_dotfiles_root=~/.dotfiles
     printf "enter the root of dotfiles ($_default_dotfiles_root): \n"
     read dotfiles_root
@@ -42,6 +50,10 @@ get_dotfiles_root() {
 }
 
 get_dotfiles_local() {
+    if [ -n "$DOTFILES_LOCAL" ]; then
+        info "use user defined DOTFILES_LOCAL: $DOTFILES_LOCAL"
+        return 0
+    fi
     _default_dotfiles_local=$DOTFILES_ROOT/.dotter/local.toml
     printf "enter the path of local configuration ($_default_dotfiles_local): \n"
     read dotfiles_local
