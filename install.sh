@@ -51,7 +51,7 @@ get_dotfiles_local() {
 try_install_dotter() {
     _dotter_dl_dir=/tmp
     if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
-        # set OTTER_BIN_DIR
+        # set DOTTER_BIN_DIR
         get_dotter_bin_dir
         info "downloading dotter from github release"
         curl -L https://github.com/SuperCuber/dotter/releases/latest/download/dotter -o $_dotter_dl_dir/dotter
