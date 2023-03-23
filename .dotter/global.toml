@@ -64,3 +64,9 @@ depends = ["nvim"]
 
 [nvimpager.files]
 "nvimpager" = "~/.config/nvimpager"
+
+[conda]
+depends = ["global"]
+
+[conda.files]
+condarc = "~/.condarc"
