@@ -108,11 +108,8 @@ generate_preset_local() {
     cat << EOF > $_local_fp
 packages = ["tmux", "zsh"]
 
-[files]
-zshrc = "~/.zshrc.dot"
-
-# nvim_light_mode = 1
-# nvim_transparent_bg = 1
+# checkout all variables in https://github.com/MamoruDS/dotfiles/blob/main/.dotter/global.toml
+# [variables]
 
 EOF
     info "add the following lines to your ~/.zshrc"
