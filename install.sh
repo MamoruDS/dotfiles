@@ -70,11 +70,14 @@ parse_packages() {
 }
 
 get_packages() {
+    _default_dotfiles_packages='tmux,zsh' # TODO
     if [ -n "$DOTFILES_PACKAGES" ]; then
         info "use user defined DOTFILES_PACKAGES: $DOTFILES_PACKAGES"
+        if [ -n "$(echo $DOTFILES_PACKAGES | grep '^,' 2> /dev/null)" ]; then
+            DOTFILES_PACKAGES="${_default_dotfiles_packages}${DOTFILES_PACKAGES}"
+        fi
         return 0
     fi
-    _default_dotfiles_packages='tmux,zsh' # TODO
     DOTFILES_PACKAGES=${DOTFILES_PACKAGES:-$_default_dotfiles_packages}
 }
 
