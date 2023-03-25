@@ -60,6 +60,24 @@ get_dotfiles_local() {
     DOTFILES_LOCAL=$(get_valid_path ${dotfiles_local:-$_default_dotfiles_local})
 }
 
+parse_packages() {
+    _packages=$(echo $@ | tr -d ' ')
+    if [ ! -z $_packages ]; then
+        echo "$_packages" | tr ',' '\n' | while read _item; do
+            echo \"$_item\",
+        done
+    fi
+}
+
+get_packages() {
+    if [ -n "$DOTFILES_PACKAGES" ]; then
+        info "use user defined DOTFILES_PACKAGES: $DOTFILES_PACKAGES"
+        return 0
+    fi
+    _default_dotfiles_packages='tmux,zsh' # TODO
+    DOTFILES_PACKAGES=${DOTFILES_PACKAGES:-$_default_dotfiles_packages}
+}
+
 try_install_dotter() {
     _dotter_dl_dir=/tmp
     if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
@@ -106,7 +124,7 @@ generate_preset_local() {
     fi
     
     cat << EOF > $_local_fp
-packages = ["tmux", "zsh"]
+packages = [$(parse_packages $DOTFILES_PACKAGES)]
 
 # checkout all variables in https://github.com/MamoruDS/dotfiles/blob/main/.dotter/global.toml
 # [variables]
@@ -161,6 +179,9 @@ get_dotfiles_root
 
 # set DOTFILES_LOCAL
 get_dotfiles_local
+
+# set DOTFILES_PACKAGES
+get_packages
 
 (
     info 'cloning dotfiles from remote' && \
