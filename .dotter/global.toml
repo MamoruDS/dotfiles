@@ -37,7 +37,7 @@ starship = "~/.config/starship"
 depends = ["shell"]
 
 [zsh.files]
-"zshrc" = "~/.zshrc"
+"zshrc" = "~/.zshrc.dot"
 zsh = "~/.zsh"
 
 [zsh.variables]
