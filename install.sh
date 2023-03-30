@@ -64,7 +64,7 @@ parse_packages() {
     _packages=$(echo $@ | tr -d ' ')
     if [ ! -z $_packages ]; then
         echo "$_packages" | tr ',' '\n' | while read _item; do
-            echo \"$_item\",
+            printf \"$_item\",
         done
     fi
 }
