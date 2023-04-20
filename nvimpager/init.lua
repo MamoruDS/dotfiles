@@ -9,12 +9,19 @@ for _, plugin in ipairs(plugins) do
 end
 
 require("github-theme").setup({
-    {{#if (eq nvim_background "dark")}}
-    theme_style = "dark_default",
-    {{/if}}
-    {{#if (eq nvim_background "light")}}
-    theme_style = "light",
-    {{/if}}
-    function_style = "italic",
-    transparent = true,
+    options = {
+        styles = {
+            functions = "italic",
+        },
+        transparent = true,
+    },
 })
+
+vim.cmd[[
+{{#if (eq nvim_background "dark")}}
+    colorscheme github_dark_default
+{{/if}}
+{{#if (eq nvim_background "light")}}
+    colorscheme github_light
+{{/if}}
+]]
