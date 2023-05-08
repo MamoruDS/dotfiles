@@ -18,6 +18,8 @@ bindkey "\e[F" end-of-line
 
 [ -n "$key[Up]" ] && bindkey -- "$key[Up]" up-line-or-beginning-search
 bindkey "\e[A" up-line-or-beginning-search
+bindkey "\eOA" up-line-or-beginning-search
 
 [ -n "$key[Down]" ] && bindkey -- "$key[Down]" down-line-or-beginning-search
 bindkey "\e[B" down-line-or-beginning-search
+bindkey "\eOB" down-line-or-beginning-search
