@@ -37,7 +37,11 @@ fi
 
 if [[ -f $realpath ]]; then
     if [ -x "$(command -v file)" ]; then
-        mime=$(file -ibL $realpath)
+        if [ $(uname -s) = 'Linux' ]; then
+            mime=$(file -ibL $realpath)
+        else
+            mime=$(file -IbL $realpath)
+        fi
         category=${mime%%/*}
         subtype=${mime##*/}; subtype=${subtype%%;*}
         charset=${mime##*charset=}
