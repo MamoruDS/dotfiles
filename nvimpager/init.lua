@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 
-local plugin_root = vim.fn.stdpath("data") .. "/site/pack/packer/start/"
+local plugin_root = vim.fn.stdpath("data") .. "/site/pack/packer/opt/"
 local plugins = {
     'github-nvim-theme',
 }
