@@ -113,6 +113,15 @@ style = 'bold 15'
 style = 'bold 2'
 format = '[N](bold)[v](bold 8)[$env_value]($style) '
 
+[env_var.http_proxy]
+format = '[P](bold)[@](bold 8)[http](bold 14) '
+
+[env_var.https_proxy]
+format = '[P](bold)[@](bold 8)[https](bold 14) '
+
+[env_var.all_proxy]
+format = '[P](bold)[@](bold 8)[all](bold 14) '
+
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
 {{#if (eq use_nerdfont 1)}}
