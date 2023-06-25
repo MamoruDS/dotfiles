@@ -25,7 +25,10 @@ if [ -x "$(command -v exa)" ]; then
 else
   alias ls='ls --color=auto'
 fi
+
+alias la='ls -a'
 alias ll='ls -lh'
+alias lla='ls -lah'
 
 if [ ! -x "$(command -v vim)" ] && [ -x "$(command -v nvim)" ] ; then
   alias vim='nvim'
