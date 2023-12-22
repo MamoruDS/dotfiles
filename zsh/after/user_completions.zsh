@@ -1,7 +1,5 @@
 user_completions_root=$HOME/.zsh/completions
-
-if [ ! -d "$user_completions_root" ]; then
-    mkdir -p "$user_completions_root"
-fi
+[ -d "$user_completions_root" ] || mkdir -p "$user_completions_root"
 
 fpath=($user_completions_root $fpath)
+unset user_completions_root
