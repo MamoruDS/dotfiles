@@ -1,6 +1,3 @@
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
-
 # https://unix.stackexchange.com/a/258661
 autoload -U select-word-style
 select-word-style bash
