@@ -3,3 +3,7 @@ user_completions_root=$HOME/.zsh/completions
 
 fpath=($user_completions_root $fpath)
 unset user_completions_root
+
+if [ -x "$(command -v brew)" ]; then
+    fpath=($fpath $(brew --prefix)/share/zsh/site-functions)
+fi
