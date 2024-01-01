@@ -83,12 +83,28 @@ get_packages() {
 
 try_install_dotter() {
     _dotter_dl_dir=/tmp
-    # TODO: aarch64
-    if [ $(uname -s) = 'Linux' ] && [ $(uname -m) = 'x86_64' ]; then
+    local dotter_release_url
+    if [ "$(uname -s)" = 'Linux' ]; then
+        case "$(uname -m)" in
+            'x86_64')
+                dotter_release_url='https://github.com/SuperCuber/dotter/releases/latest/download/dotter-linux-x64-musl'
+                ;;
+            'aarch64')
+                dotter_release_url='https://github.com/SuperCuber/dotter/releases/latest/download/dotter-linux-arm64-musl'
+                ;;
+        esac
+    elif [ "$(uname -s)" = 'Darwin' ]; then
+        case "$(uname -m)" in
+            'arm64')
+                dotter_release_url='https://github.com/SuperCuber/dotter/releases/latest/download/dotter-macos-arm64.arm'
+                ;;
+        esac 
+    fi
+    if [ -n "$dotter_release_url" ]; then
         # set DOTTER_BIN_DIR
         get_dotter_bin_dir
         info "downloading dotter from github release"
-        curl -L https://github.com/SuperCuber/dotter/releases/latest/download/dotter-linux-x64-musl -o $_dotter_dl_dir/dotter
+        curl -L $dotter_release_url -o $_dotter_dl_dir/dotter
         chmod +x $_dotter_dl_dir/dotter
         info "installing dotter to $DOTTER_BIN_DIR"
         [ ! -d "$DOTTER_BIN_DIR" ] && (mkdir -p "$DOTTER_BIN_DIR" 2> /dev/null )
