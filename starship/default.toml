@@ -85,6 +85,14 @@ $character"""
 [character]
 success_symbol = '[:](bold 0)'
 error_symbol = '[:](bold 9)'
+{{#if (eq zsh_vi 1)}}
+# success_symbol = '[I](bold fg:#64a7fc bg:#1f2f44)'
+# error_symbol = '[I](bold fg:#f3a6c4 bg:#3a2b30)'
+vimcmd_symbol = '[N](bold fg:#64a7fc bg:#1f2f44)'
+vimcmd_visual_symbol = '[V](bold fg:#64a7fc bg:#1f2f44)'
+vimcmd_replace_one_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
+vimcmd_replace_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
+{{/if}}
 
 [cmd_duration]
 min_time = 1_500
