@@ -6,6 +6,11 @@ fi
 zinit light spaceship-prompt/spaceship-prompt
 
 {{/if}}
+{{#if (eq zsh_vi 1)}}
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
+{{/if}}
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light MamoruDS/zsh-history-fuzzy-search
 

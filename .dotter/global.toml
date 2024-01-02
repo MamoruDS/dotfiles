@@ -44,6 +44,7 @@ zsh = "~/.zsh"
 zsh_theme = "starship"
 zsh_plugin_autosuggestions = 0
 zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
+zsh_vi = 0
 
 [nvim]
 depends = ["global"]
