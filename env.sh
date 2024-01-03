@@ -8,6 +8,10 @@ if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
 fi
 
+if [ -n "$ZVM_VI_EDITOR" ]; then
+    ZVM_VI_EDITOR=$EDITOR
+fi
+
 if [ -x "$(command -v bat)" ]; then
     export PAGER=bat
 fi
