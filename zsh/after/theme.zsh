@@ -1,5 +1,5 @@
 {{#if (eq zsh_theme "starship")}}
-_init_starship() {
+init_starship() {
     if [ ! "$STARSHIP_SHELL" = "zsh" ] || [ -z "$_DOTFILES_RELOADING" ] ; then
         eval "$(starship init zsh)"
     fi
@@ -15,7 +15,8 @@ if [ ! -x "$(command -v starship)" ]; then
     curl -sS https://starship.rs/install.sh | sh
 fi
 
-_init_starship
+init_starship
+unset -f init_starship
 {{/if}}
 {{#if (eq zsh_theme "spaceship")}}
 ZSH_THEME="spaceship"
