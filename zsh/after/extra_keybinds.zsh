@@ -1,6 +1,6 @@
 # emacs bindings
 
-bindkey -e "${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}" zsh-history-fuzzy-search
+bindkey -M emacs "${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}" zsh-history-fuzzy-search
 
 # vi bindings
 
@@ -25,6 +25,6 @@ if typeset -f zvm_bindkey > /dev/null; then
         zvm_bindkey vicmd '/' zsh-history-fuzzy-search
     }
 else
-    bindkey -v "${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}" zsh-history-fuzzy-search
-    bindkey -a "/" zsh-history-fuzzy-search
+    bindkey -M viins "${ZSH_HISTORY_FUZZY_SEARCH_BIND:-"^r"}" zsh-history-fuzzy-search
+    bindkey -M vicmd "/" zsh-history-fuzzy-search
 fi 
