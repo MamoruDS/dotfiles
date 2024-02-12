@@ -63,13 +63,6 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
     tmux_using_plugins = 1
     ```
 
--   [packer](https://github.com/wbthomason/packer.nvim#quickstart) is required for using package `nvim`
-
-    ```shell
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    ```
-
 ## Usage
 
 If you have installed the dotfiles with package `zsh`, you can easily keep your dotfiles up-to-date using the update-dotfiles function. This function searches for the root of your dotfiles repository at `~/.dotfiles`, and looks for the local config toml file at `~/.dotfiles/.dotter/local.toml`. However, you can customize these locations using environment variables specific to your setup, as follows:
