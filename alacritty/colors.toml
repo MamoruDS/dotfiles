@@ -1,0 +1,31 @@
+[colors.bright]
+black = "#65737e"
+blue = "#79b6f2"
+cyan = "#87ffd7"
+green = "#95f5a2"
+magenta = "#f4bfff"
+red = "#ff86a1"
+white = "#edf2ff"
+yellow = "#ffc077"
+
+[colors.normal]
+black = "#434b51"
+blue = "#4098ef"
+cyan = "#2bf4b0"
+green = "#5add6c"
+magenta = "#e694f7"
+red = "#ef476d"
+white = "#a7b3cd"
+yellow = "#ffa441"
+
+[colors.primary]
+background = "#010409"
+foreground = "#ffffff"
+
+[colors.cursor]
+text = "#f4bfff"
+
+[colors.selection]
+background = "#c397d8"
+text = "CellBackground"
+
