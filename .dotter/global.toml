@@ -6,6 +6,20 @@ use_nerdfont = 0
 [scripts.files]
 scripts = "~/.scripts"
 
+# PACKAGES
+
+[alacritty]
+depends = ["global"]
+
+[alacritty.files]
+"alacritty" = "~/.config/alacritty"
+
+[conda]
+depends = ["global"]
+
+[conda.files]
+condarc = "~/.condarc"
+
 [git.files]
 gitconfig = "~/.gitconfig"
 
@@ -13,38 +27,6 @@ gitconfig = "~/.gitconfig"
 git_email = ""
 git_username = ""
 git_signing_key = ""
-
-[tmux]
-depends = ["global", "scripts"]
-
-[tmux.files]
-"tmux.conf" = "~/.tmux.conf"
-
-[tmux.variables]
-tmux_prefix = "C-b"
-tmux_using_plugins = 0
-
-[shell]
-depends = ["global", "scripts"]
-
-[shell.files]
-aliases = "~/.aliases"
-hushlogin = "~/.hushlogin"
-"env.sh" = "~/.env.sh"
-starship = "~/.config/starship"
-
-[zsh]
-depends = ["shell"]
-
-[zsh.files]
-"zshrc" = "~/.zshrc.dot"
-zsh = "~/.zsh"
-
-[zsh.variables]
-zsh_theme = "starship"
-zsh_plugin_autosuggestions = 0
-zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
-zsh_vi = 0
 
 [nvim]
 depends = ["global"]
@@ -65,14 +47,34 @@ depends = ["nvim"]
 [nvimpager.files]
 "nvimpager" = "~/.config/nvimpager"
 
-[conda]
-depends = ["global"]
+[shell]
+depends = ["global", "scripts"]
 
-[conda.files]
-condarc = "~/.condarc"
+[shell.files]
+aliases = "~/.aliases"
+hushlogin = "~/.hushlogin"
+"env.sh" = "~/.env.sh"
+starship = "~/.config/starship"
 
-[alacritty]
-depends = ["global"]
+[tmux]
+depends = ["global", "scripts"]
 
-[alacritty.files]
-"alacritty" = "~/.config/alacritty"
+[tmux.files]
+"tmux.conf" = "~/.tmux.conf"
+
+[tmux.variables]
+tmux_prefix = "C-b"
+tmux_using_plugins = 0
+
+[zsh]
+depends = ["shell"]
+
+[zsh.files]
+"zshrc" = "~/.zshrc.dot"
+zsh = "~/.zsh"
+
+[zsh.variables]
+zsh_theme = "starship"
+zsh_plugin_autosuggestions = 0
+zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
+zsh_vi = 0
