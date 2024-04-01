@@ -66,6 +66,9 @@ depends = ["global", "scripts"]
 tmux_prefix = "C-b"
 tmux_using_plugins = 0
 
+[yabai.files]
+yabai = "~/.config/yabai"
+
 [zsh]
 depends = ["shell"]
 
