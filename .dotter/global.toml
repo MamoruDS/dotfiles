@@ -70,3 +70,9 @@ depends = ["global"]
 
 [conda.files]
 condarc = "~/.condarc"
+
+[alacritty]
+depends = ["global"]
+
+[alacritty.files]
+"alacritty" = "~/.config/alacritty"
