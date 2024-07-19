@@ -1,5 +1,6 @@
 import = [
     "~/.config/alacritty/colors.toml",
+    "~/.config/alacritty/font.toml",
     "~/.config/alacritty/window.toml",
     "~/.config/alacritty/local.toml",
 ]

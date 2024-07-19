@@ -17,6 +17,8 @@ depends = ["global"]
 [alacritty.variables]
 alacritty_blur = 0
 alacritty_decorations = "Full"
+alacritty_font = "RobotoMono Nerd Font"
+alacritty_font_size = 14
 alacritty_opacity = 0.9
 
 [conda]
