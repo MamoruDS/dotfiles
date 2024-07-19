@@ -18,10 +18,9 @@ require("github-theme").setup({
 })
 
 vim.cmd([[
-{{#if (eq nvim_background "dark")}}
+{{#if (eq dark_mode 1)}}
     colorscheme github_dark_tritanopia
-{{/if}}
-{{#if (eq nvim_background "light")}}
+{{else}}
     colorscheme github_light
 {{/if}}
 ]])

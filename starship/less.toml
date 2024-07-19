@@ -115,7 +115,11 @@ format = "[](bold 7) [$path]($style)[$read_only]($read_only_style) "
 {{else}}
 format = "[$path]($style)[$read_only]($read_only_style) "
 {{/if}}
+{{#if (eq dark_mode 1)}}
 style = 'bold 15'
+{{else}}
+style = 'bold 0'
+{{/if}}
 
 [env_var.CUDA_VISIBLE_DEVICES]
 style = 'bold 2'
@@ -171,7 +175,11 @@ disabled = false
 
 [time]
 format ='[$time]($style) '
+{{#if (eq dark_mode 1)}}
 style = 'bold 0'
+{{else}}
+style = 'bold 7'
+{{/if}}
 disabled = false
 
 [username]
