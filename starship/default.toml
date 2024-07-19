@@ -97,7 +97,11 @@ vimcmd_replace_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
 [cmd_duration]
 min_time = 1_500
 format ='[$duration]($style) '
+{{#if (eq dark_mode 1)}}
 style = 'bold 216'
+{{else}}
+style = 'bold 180'
+{{/if}}
 
 [conda]
 {{#if (eq use_nerdfont 1)}}
@@ -177,7 +181,7 @@ format ='[$time]($style) '
 {{#if (eq dark_mode 1)}}
 style = 'bold 0'
 {{else}}
-style = 'bold 15'
+style = 'bold 8'
 {{/if}}
 disabled = false
 
