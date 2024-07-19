@@ -1,5 +1,11 @@
 [window]
+{{#if (eq alacritty_blur 1)}}
+blur = true
+{{/if}}
+decorations = "{{alacritty_decorations}}"
 dynamic_padding = true
+opacity = {{alacritty_opacity}}
+
 
 [window.padding]
 x = 10

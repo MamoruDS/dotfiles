@@ -14,6 +14,11 @@ depends = ["global"]
 [alacritty.files]
 "alacritty" = "~/.config/alacritty"
 
+[alacritty.variables]
+alacritty_blur = 0
+alacritty_decorations = "Full"
+alacritty_opacity = 0.9
+
 [conda]
 depends = ["global"]
 
