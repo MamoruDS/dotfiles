@@ -20,6 +20,7 @@ alacritty_decorations = "Full"
 alacritty_font = "RobotoMono Nerd Font"
 alacritty_font_size = 14
 alacritty_opacity = 0.9
+alacritty_theme = "jasminetea"
 
 [conda]
 depends = ["global"]
