@@ -21,7 +21,9 @@ alacritty_decorations = "Full"
 alacritty_font = "RobotoMono Nerd Font"
 alacritty_font_size = 14
 alacritty_opacity = 0.9
-alacritty_theme = "jasminetea"
+# alacritty_theme = # check available themes in `alacrity/themes`
+alacritty_theme_dark = "jasminetea" # only apply when alacritty_theme unset
+alacritty_theme_light = "github_light" # only apply when alacritty_theme unset
 
 [conda]
 depends = ["global"]

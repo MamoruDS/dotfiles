@@ -1,1 +1,9 @@
+#{{#if alacritty_theme}}
 import = ["~/.config/alacritty/themes/{{alacritty_theme}}.toml"]
+#{{else}}
+#{{#if (eq dark_mode 1)}}
+import = ["~/.config/alacritty/themes/{{alacritty_theme_dark}}.toml"]
+#{{else}}
+import = ["~/.config/alacritty/themes/{{alacritty_theme_light}}.toml"]
+#{{/if}}
+#{{/if}}
