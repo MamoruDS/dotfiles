@@ -1,11 +1,8 @@
-import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/local.toml"]
+import = [
+    "~/.config/alacritty/colors.toml",
+    "~/.config/alacritty/window.toml",
+    "~/.config/alacritty/local.toml",
+]
 
 [cursor.style]
 blinking = "On"
-
-[window]
-dynamic_padding = true
-
-[window.padding]
-x = 10
-y = 7
