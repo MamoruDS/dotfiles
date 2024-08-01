@@ -3,52 +3,39 @@
 icon=
 icon_fg='#{f_cmd_fg}'
 icon_bg='#{f_cmd_bg}'
-name=$1
+name="$(echo "$1" | tr '[:upper:]' '[:lower:]')"
 
-if [ $1 = ash ]; then
+if [ "$name" = 'ash' ]; then
     icon=""
-fi 
-if [ $1 = bash ]; then
+elif [ "$name" = 'bash' ]; then
     icon=""
-fi
-if [ $1 = docker ]; then
+elif [ "$name" = 'docker' ]; then
     icon=""
-fi
-if [ $1 = git ]; then
+elif [ "$name" = 'git' ]; then
     icon=""
-fi
-if [ $1 = node ]; then
+elif [ "$name" = 'node' ]; then
     icon="" # ?
-fi
-if [ $1 = nvim ]; then
+elif [ "$name" = 'nvim' ]; then
     icon=""
     name="neovim"
-fi
-if [ $1 = python ] || [ $1 = Python ]; then
+elif [ "$name" = 'python' ]; then
     icon=""
     icon_fg="#ffbc03"
     name="python"
-fi
-if [ $1 = ruby ]; then
+elif [ "$name" = 'ruby' ]; then
     icon=""
-fi
-if [ $1 = rust ]; then
+elif [ "$name" = 'rust' ]; then
     icon=""
-fi
-if [ $1 = ssh ]; then
+elif [ "$name" = 'ssh' ]; then
     icon=""
-fi
-if [ $1 = sudo ]; then
+elif ["$name" = 'sudo' ]; then
     icon=""
-fi
-if [ $1 = tsc ]; then
+elif [ "$name" = 'tsc' ]; then
     # icon=""
     icon="ﯤ"
-fi
-if [ $1 = vim ]; then
+elif [ "$name" = 'vim' ]; then
     icon=""
-fi
-if [ $1 = zsh ]; then
+elif [ "$name" = 'zsh' ]; then
     icon=""
 fi
 
