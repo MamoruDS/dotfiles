@@ -54,6 +54,8 @@ fi
 
 if [ ! -z "$icon" ]; then
     icon="#[fg=$icon_fg,bg=$icon_bg] $icon "
+else
+    icon=' '
 fi
 name="#[fg=#{f_cmd_fg},bg=#{f_cmd_bg}]$name "
 
