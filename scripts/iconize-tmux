@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
 icon=
-icon_fg='green'
-icon_bg='default'
+icon_fg='#{f_cmd_fg}'
+icon_bg='#{f_cmd_bg}'
 name=$1
 
 if [ $1 = ash ]; then
@@ -55,7 +55,7 @@ fi
 if [ ! -z "$icon" ]; then
     icon="#[fg=$icon_fg,bg=$icon_bg] $icon "
 fi
-name="#[fg=#{fg0_light}]$name "
+name="#[fg=#{f_cmd_fg},bg=#{f_cmd_bg}]$name "
 
 echo "\
 #{default_style}\
