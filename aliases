@@ -27,17 +27,19 @@ if [ -x "$(command -v tmux)" ]; then
 alias ta='tmux attach -t 1 2> /dev/null || tmux new -s 1 -n 0'
 fi
 
-if [ -x "$(command -v eza)" ]; then
-  alias ls='eza --color=auto'
-elif [ -x "$(command -v exa)" ]; then
-  alias ls='exa --color=auto'
-else
-  alias ls='ls --color=auto'
-fi
-
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
+
+if [ -x "$(command -v eza)" ]; then
+  alias ls='eza --color=auto'
+  alias lg='ls -l --git'
+elif [ -x "$(command -v exa)" ]; then
+  alias ls='exa --color=auto'
+  alias lg='ls -l --git'
+else
+  alias ls='ls --color=auto'
+fi
 
 if [ ! -x "$(command -v vim)" ] && [ -x "$(command -v nvim)" ] ; then
   alias vim='nvim'
