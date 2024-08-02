@@ -74,6 +74,8 @@ depends = ["global", "scripts"]
 
 [tmux.variables]
 tmux_prefix = "C-b"
+tmux_theme_color_dark = "simple_red"
+tmux_theme_color_light = "simple_purple"
 tmux_using_plugins = 0
 
 [yabai.files]
