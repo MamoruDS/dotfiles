@@ -33,10 +33,10 @@ alias lla='ls -la'
 
 if [ -x "$(command -v eza)" ]; then
   alias ls='eza --color=auto'
-  alias lg='ls -l --git'
+  alias lg='ls -l --git --git-ignore'
 elif [ -x "$(command -v exa)" ]; then
   alias ls='exa --color=auto'
-  alias lg='ls -l --git'
+  alias lg='ls -l --git --git-ignore'
 else
   alias ls='ls --color=auto'
 fi
