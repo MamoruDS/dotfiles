@@ -91,5 +91,6 @@ zsh = "~/.zsh"
 [zsh.variables]
 zsh_theme = "starship"
 zsh_plugin_autosuggestions = 0
-zsh_plugin_fsh_theme = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
+zsh_plugin_fsh_theme_dark = "~/.zsh/plugins/configs/fsh_jasminetea.ini"
+zsh_plugin_fsh_theme_light = "~/.zsh/plugins/configs/fsh_github_light.ini"
 zsh_vi = 0
