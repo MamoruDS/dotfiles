@@ -18,3 +18,6 @@ zinit light MamoruDS/zsh-history-fuzzy-search
 zinit light zsh-users/zsh-autosuggestions
 
 {{/if}}
+
+# completion - conda
+zinit light conda-incubator/conda-zsh-completion
