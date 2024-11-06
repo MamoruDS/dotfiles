@@ -3,7 +3,7 @@ import = [
     "~/.config/alacritty/themes/colors.toml",
     "~/.config/alacritty/font.toml",
     "~/.config/alacritty/window.toml",
-    "~/.config/alacritty/local.toml",
+    "~/.config/alacritty/local.toml", # optional
 ]
 
 [cursor.style]
