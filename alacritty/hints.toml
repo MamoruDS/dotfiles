@@ -1,0 +1,22 @@
+# https://github.com/alacritty/alacritty/issues/5246#issuecomment-1878166299
+# following config::ui_config::Hints::default()[]
+
+[[hints.enabled]]
+binding = { key = "o", mods = "Control|Shift" }
+command = "open" # mod - platform specific
+hyperlinks = true
+mouse.enabled = true
+mouse.mods = "Command" # mod - Default::default() -> Command
+post_processing = true
+persist = false
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
+
+[[hints.enabled]]
+binding = { key = "o", mods = "Control|Shift" }
+command = "xdg-open" # mod - platform specific
+hyperlinks = true
+mouse.enabled = true
+mouse.mods = "Alt" # mod - Default::default() -> Alt
+post_processing = true
+persist = false
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
