@@ -1,0 +1,3 @@
+[submodule "nvim/remote"]
+	path = nvim/remote
+	url = https://github.com/MamoruDS/nvim-config.git

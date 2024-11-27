@@ -15,7 +15,7 @@ This repository using [dotter](https://github.com/SuperCuber/dotter#installation
 -   Clone this repository to any directory:
 
     ```shell
-    git clone git@github.com:MamoruDS/dotfiles.git
+    git clone --recursive git@github.com:MamoruDS/dotfiles.git
     ```
 
 -   Deploy with dotter:
