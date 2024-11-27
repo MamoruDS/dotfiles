@@ -43,7 +43,8 @@ git_signing_key = ""
 depends = ["global"]
 
 [nvim.files]
-nvim = "~/.config/nvim"
+"nvim/remote" = "~/.config/nvim"
+"nvim/local" = "~/.config/nvim/lua/local"
 
 [nvim.variables]
 nvim_transparent_bg = 0
