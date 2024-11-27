@@ -47,9 +47,6 @@ nvim = "~/.config/nvim"
 
 [nvim.variables]
 nvim_transparent_bg = 0
-nvim_node_host_prog = ""               # rqeuired by coc.nvim; `lib/node_modules/neovim/bin/cli.js`
-nvim_plugin_copilot_node_host = ""     # required by copilot; `bin/node`
-nvim_coc_config_home = "~/.config/coc" # h: g:coc_config_home
 
 [nvimpager]
 depends = ["nvim"]
