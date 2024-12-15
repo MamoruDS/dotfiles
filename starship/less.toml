@@ -85,45 +85,45 @@ $character"""
 [character]
 success_symbol = '[:](bold 0)'
 error_symbol = '[:](bold 9)'
-{{#if (eq zsh_vi 1)}}
+# {{#if (eq zsh_vi 1)}}
 # success_symbol = '[I](bold fg:#64a7fc bg:#1f2f44)'
 # error_symbol = '[I](bold fg:#f3a6c4 bg:#3a2b30)'
 vimcmd_symbol = '[N](bold fg:#64a7fc bg:#1f2f44)'
 vimcmd_visual_symbol = '[V](bold fg:#64a7fc bg:#1f2f44)'
 vimcmd_replace_one_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
 vimcmd_replace_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
-{{/if}}
+# {{/if}}
 
 [cmd_duration]
 min_time = 1_500
-format ='[$duration]($style) '
-{{#if (eq dark_mode 1)}}
+format = '[$duration]($style) '
+# {{#if (eq dark_mode 1)}}
 style = 'bold 216'
-{{else}}
+# {{else}}
 style = 'bold 180'
-{{/if}}
+# {{/if}}
 
 [conda]
-{{#if (eq use_nerdfont 1)}}
+# {{#if (eq use_nerdfont 1)}}
 symbol = "🅒 "
-{{else}}
+# {{else}}
 symbol = "@"
-{{/if}}
+# {{/if}}
 style = 'bold 81'
 format = '$symbol[$environment]($style) '
 ignore_base = false
 
 [directory]
-{{#if (eq use_nerdfont 1)}}
+# {{#if (eq use_nerdfont 1)}}
 format = "[](bold 7) [$path]($style)[$read_only]($read_only_style) "
-{{else}}
+# {{else}}
 format = "[$path]($style)[$read_only]($read_only_style) "
-{{/if}}
-{{#if (eq dark_mode 1)}}
+# {{/if}}
+# {{#if (eq dark_mode 1)}}
 style = 'bold 15'
-{{else}}
+# {{else}}
 style = 'bold 0'
-{{/if}}
+# {{/if}}
 
 [env_var.CUDA_VISIBLE_DEVICES]
 style = 'bold 2'
@@ -140,11 +140,11 @@ format = '[P](bold)[@](bold 8)[all](bold 14) '
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
-{{#if (eq use_nerdfont 1)}}
+# {{#if (eq use_nerdfont 1)}}
 symbol = ' '
-{{else}}
+# {{else}}
 symbol = ' '
-{{/if}}
+# {{/if}}
 style = 'bold 13'
 
 [git_status]
@@ -160,30 +160,30 @@ disabled = true
 [package]
 # format = '[is](bold) [$symbol$version]($style) '
 format = '[$symbol$version]($style) '
-{{#if (eq use_nerdfont 1)}}
+# {{#if (eq use_nerdfont 1)}}
 symbol = ' '
-{{else}}
+# {{else}}
 symbol = 'p@'
-{{/if}}
+# {{/if}}
 style = 'bold 11'
 
 [status]
 format = '[$symbol$status]($style) '
-{{#if (eq use_nerdfont 1)}}
+# {{#if (eq use_nerdfont 1)}}
 symbol = ' '
-{{else}}
+# {{else}}
 symbol = 'c'
-{{/if}}
+# {{/if}}
 style = 'bold 9'
 disabled = false
 
 [time]
-format ='[$time]($style) '
-{{#if (eq dark_mode 1)}}
+format = '[$time]($style) '
+# {{#if (eq dark_mode 1)}}
 style = 'bold 0'
-{{else}}
+# {{else}}
 style = 'bold 8'
-{{/if}}
+# {{/if}}
 disabled = false
 
 [username]
