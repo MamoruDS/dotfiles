@@ -88,7 +88,11 @@ error_symbol = '[:](bold 9)'
 # {{#if (eq zsh_vi 1)}}
 # success_symbol = '[I](bold fg:#64a7fc bg:#1f2f44)'
 # error_symbol = '[I](bold fg:#f3a6c4 bg:#3a2b30)'
+# {{#if (eq dark_mode 1)}}
 vimcmd_symbol = '[N](bold fg:#64a7fc bg:#1f2f44)'
+# {{else}}
+vimcmd_symbol = '[N](bold fg:#ffffff bg:#0969da)'
+# {{/if}}
 vimcmd_visual_symbol = '[V](bold fg:#64a7fc bg:#1f2f44)'
 vimcmd_replace_one_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
 vimcmd_replace_symbol = '[R](bold fg:#f28674 bg:#3a2829)'
