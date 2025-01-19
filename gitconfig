@@ -22,6 +22,9 @@
 [commit]
     gpgsign = true
 
+[core]
+    quotepath = off
+
 [gpg]
     {{#if (is_executable "gpg2")}}
     program = gpg2
