@@ -1,3 +1,12 @@
+{{#if (eq zsh_theme "oh-my-posh")}}
+init_oh_my_posh() {
+    local config_fp=${XDG_CONFIG_HOME:-$HOME/.config/oh-my-posh/default.toml}
+    eval "$(oh-my-posh init zsh --config $config_fp)"
+}
+
+init_oh_my_posh
+unset -f init_oh_my_posh
+{{/if}}
 {{#if (eq zsh_theme "starship")}}
 init_starship() {
     if [ ! "$STARSHIP_SHELL" = "zsh" ] || [ -z "$_DOTFILES_RELOADING" ] ; then

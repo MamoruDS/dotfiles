@@ -1,0 +1,86 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+enable_cursor_positioning = true
+version = 3
+
+[var]
+CharAltHist = " "
+CharNormal = ":"
+
+[palette]
+duration = "180"
+fg = "0"
+git = "5"
+project = "11"
+time = "8"
+status = "9"
+
+[[blocks]]
+type = "prompt"
+newline = true
+alignment = "left"
+
+[[blocks.segments]]
+type = "session"
+style = "diamond"
+foreground = "p:fg"
+template = "{{if .SSHSession}}{{if .Env.TMUX}}{{else}}<b><3>{{.UserName}}</> au <6>{{.HostName}}</></b>{{end}}{{end}} "
+
+[[blocks.segments]]
+type = "path"
+style = "plain"
+foreground = "p:fg"
+template = '<7>📁</> <b>{{.Path}}</b>{{if .Writable}}{{else}}🔒{{end}} '
+[blocks.segments.properties]
+max_depth = 3
+gitdir_format = "<5>%s</>"
+style = "agnoster_short"
+hide_root_location = true
+
+[[blocks.segments]]
+type = "git"
+style = "powerline"
+foreground = "p:git"
+template = '<b>{{.HEAD}} {{if .Staging.Deleted}}✘{{end}}{{if .Working.Modified}}!{{end}}{{if .Staging.Added}}+{{end}}{{if .Working.Untracked}}?{{end}}{{if .Behind}}⇣{{end}}{{if .Ahead}}⇡{{end}}<\b> '
+[blocks.segments.properties]
+fetch_status = true
+branch_icon = ' '
+
+[[blocks.segments]]
+type = "project"
+style = "plain"
+foreground = "p:project"
+template = '<b>{{ .Version }}</b> '
+
+[[blocks.segments]]
+type = "executiontime"
+style = "plain"
+foreground = "p:duration"
+template = '<b>{{ .FormattedMs }}</b> '
+
+[[blocks.segments]]
+type = "time"
+style = "plain"
+foreground = "p:time"
+template = '<b>{{ .CurrentDate | date .Format }}</b> '
+
+[[blocks.segments]]
+type = "status"
+style = "diamond"
+foreground = "p:status"
+template = "{{if eq .Code 0}}{{else}}<b> {{ .String }}</b>{{end}} "
+[blocks.segments.properties]
+always_enabled = true
+status_separator = ''
+
+# ---
+
+[[blocks]]
+type = "prompt"
+newline = true
+alignment = "left"
+
+[[blocks.segments]]
+type = "text"
+style = "plain"
+template = '<b><0>{{if .Segments.Status.Code}}<9>{{else}}<0>{{end}}{{if .Env.HISTFILE}}</><3>{{.Var.CharAltHist}}{{else}}{{.Var.CharNormal}}{{end}}</></b>'
