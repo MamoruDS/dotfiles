@@ -62,6 +62,7 @@ depends = ["global", "scripts"]
 aliases = "~/.aliases"
 hushlogin = "~/.hushlogin"
 "env.sh" = "~/.env.sh"
+oh-my-posh = { target = "~/.config/oh-my-posh", type = "symbolic" }
 starship = "~/.config/starship"
 
 [tmux]
