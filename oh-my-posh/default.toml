@@ -41,7 +41,7 @@ hide_root_location = true
 type = "git"
 style = "powerline"
 foreground = "p:git"
-template = '<b>{{.HEAD}} {{if .Staging.Deleted}}✘{{end}}{{if .Working.Modified}}!{{end}}{{if .Staging.Added}}+{{end}}{{if .Working.Untracked}}?{{end}}{{if .Behind}}⇣{{end}}{{if .Ahead}}⇡{{end}}<\b> '
+template = '<b>{{.HEAD}} {{if .Staging.Deleted}}✘{{end}}{{if .Working.Modified}}!{{end}}{{if or .Staging.Added .Staging.Modified}}+{{end}}{{if .Working.Untracked}}?{{end}}{{if .Behind}}⇣{{end}}{{if .Ahead}}⇡{{end}}<\b> '
 [blocks.segments.properties]
 fetch_status = true
 branch_icon = ' '
