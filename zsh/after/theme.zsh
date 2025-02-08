@@ -12,7 +12,7 @@ init_starship() {
     if [ ! "$STARSHIP_SHELL" = "zsh" ] || [ -z "$_DOTFILES_RELOADING" ] ; then
         eval "$(starship init zsh)"
     fi
-    if [ -z "$TMUX" && ! "$TERM_PROGRAM" = "vscode" ]; then
+    if [ -z "$TMUX" ] && [ -z "$ZELLIJ" ] && [ ! "$TERM_PROGRAM" = "vscode" ]; then
         export STARSHIP_CONFIG=~/.config/starship/default.toml
     else
         export STARSHIP_CONFIG=~/.config/starship/less.toml

@@ -111,7 +111,7 @@ SPACESHIP_EXIT_CODE_SYMBOL='c'
 {{/if}}
 
 # Tmux
-if [ -z "$TMUX" && ! "$TERM_PROGRAM" = "vscode" ]; then
+if [ -z "$TMUX" ] && [ -z "$ZELLIJ" ] && [ ! "$TERM_PROGRAM" = "vscode" ]; then
     SPACESHIP_USER_SHOW='true'
     SPACESHIP_HOST_SHOW='true'
 else
