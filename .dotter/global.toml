@@ -60,8 +60,9 @@ depends = ["global", "scripts"]
 
 [shell.files]
 aliases = "~/.aliases"
-hushlogin = "~/.hushlogin"
 "env.sh" = "~/.env.sh"
+"helpers.sh" = "~/.helpers.sh"
+hushlogin = "~/.hushlogin"
 oh-my-posh = { target = "~/.config/oh-my-posh", type = "symbolic" }
 starship = "~/.config/starship"
 

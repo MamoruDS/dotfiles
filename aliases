@@ -1,31 +1,4 @@
-{{#if dotter.packages.zsh}}
-reload() {
-    export _DOTFILES_RELOADING=1
-    source ~/.zshrc
-    fc -RI
-    export _DOTFILES_RELOADING=""
-}
-{{/if}}
-
 alias ':q'='echo "ヾ(・ω・*)"'
-
-# GNU for MacOS
-if [ $(uname -s) = 'Darwin' ]; then
-    if [ -x "$(command -v gln)" ]; then
-        alias ln='gln'
-    fi
-fi
-
-# systemctl
-if [ $(uname -s) = 'Linux' ] && [ -x "$(command -v systemctl)" ]; then
-    alias sc='systemctl'
-    alias scu='systemctl --user'
-    alias scs='systemctl --system'
-fi
-
-if [ -x "$(command -v tmux)" ]; then
-alias ta='tmux attach -t 1 2> /dev/null || tmux new -s 1 -n 0'
-fi
 
 alias la='ls -a'
 alias ll='ls -l'
@@ -45,18 +18,3 @@ if [ ! -x "$(command -v vim)" ] && [ -x "$(command -v nvim)" ] ; then
   alias vim='nvim'
 fi
 
-color_test() {
-    curl -fsSL https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash -
-}
-
-color_test24() {
-    curl -fsSL https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh | bash -
-}
-
-# ssh() {
-#     _reset() {
-#         tput init
-#     }
-#
-#     command ssh "$@" || _reset
-# }

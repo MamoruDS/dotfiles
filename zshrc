@@ -38,6 +38,13 @@ update-dotfiles() {
     echo '[DOTFILES] done.'
 }
 
+dotfiles-reload() {
+    export _DOTFILES_RELOADING=1
+    source "$HOME/.zshrc"
+    fc -RI
+    export _DOTFILES_RELOADING=""
+}
+
 #
 
 _source_configs() {
@@ -70,6 +77,7 @@ export PATH=$HOME/.scripts:$PATH
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local
 [ -f ~/.aliases ] && . ~/.aliases
 [ -f ~/.env.sh ] && . ~/.env.sh
+[ -f ~/.helpers.sh ] && . ~/.helpers.sh
 
 #
 
