@@ -31,6 +31,12 @@ depends = ["global"]
 [conda.files]
 condarc = "~/.condarc"
 
+[fish]
+depends = ["global"]
+
+[fish.files]
+fish = "~/.config/fish"
+
 [git.files]
 gitconfig = "~/.gitconfig"
 
